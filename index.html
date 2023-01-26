@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap" rel="stylesheet">
+    <title>plainify</title>
+    <style type="text/css">
+        body {
+            height: 100%;
+        }
+
+        textarea {
+            font-family: 'Fira Mono', monospace;
+            font-size: 12pt;
+            width: 33%;
+            height: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <textarea type="text" id="input1"></textarea>
+    <textarea type="text" id="input2"></textarea>
+    <textarea type="text" id="input3"></textarea>
+</body>
+
+
+<script type="text/javascript">
+
+    var area = document.getElementById('input1');
+    var area2 = document.getElementById('input2');
+    var area3 = document.getElementById('input3');
+    console.log(area.value);
+    
+
+    area.addEventListener('input', function () {
+        const obj = JSON.parse(area.value);
+        area2.value = JSON.stringify(obj, null, 2);
+        area3.value = JSON.stringify(JSON.parse(area2.value));
+    });
+
+    area.addEventListener('keyup', function () {
+        const obj = JSON.parse(area.value);
+        area2.value = JSON.stringify(obj, null, 2);
+        area3.value = JSON.stringify(JSON.parse(area2.value));
+    })
+
+    area2.addEventListener('input', function () {
+        const obj = JSON.parse(area.value);
+        area3.value = JSON.stringify(JSON.parse(area2.value));
+    });
+
+    area2.addEventListener('keyup', function () {
+        const obj = JSON.parse(area.value);
+        area3.value = JSON.stringify(JSON.parse(area2.value));
+    })
+
+</script>
+
+
+</html>
